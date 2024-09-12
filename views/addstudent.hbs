@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <title>E-learning and skill development and learning</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!----------header-------->
+    <header id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <a herf="/" class="nav-brand text-dark"> Manage Student</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!---------header------->
+
+    <!--------main site-->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="newstudent" class="border-shadow">
+                    <span class="text-gradient">Add New Student<i class="fas fa-user"></i></span>
+                </a>
+            </div>
+
+    <!--------form handling--------->
+    <form action="" method="POST">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>name</th>
+                    <th>USN</th>
+                    <th>Course</th>
+                    <th>Semester</th>
+                    <th>Email</th>
+                    
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each student}}
+                <tr>
+                    <td>{{@index}}</td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.usn}}</td>
+                    <td>{{this.course}}</td>
+                    <td>{{this.sem}}</td>
+                    <td>{{this.email}}</td>
+                   
+                    <td>
+                        <a href="/updates?id={{this._id}}" class="btn border-shadow update">
+                            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                        </a>
+                        <a class="btn border-shadow delete" data-id="{{this._id}}" >
+                            <span class="text-gradient"><i class="fas fa-trash"></i></span>
+                        </a>
+                        
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </form>
+    
+        </div>
+
+    </main>
+    <!--------/main site-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/index.js"></script>
+</body>
+    </html>
